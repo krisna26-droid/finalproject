@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WebController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [WebController::class, 'index'])->name('books.index');
+Route::get('/authors', [WebController::class, 'authors'])->name('authors.index');
+Route::get('/rate', [WebController::class, 'rate'])->name('ratings.create');
